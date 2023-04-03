@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class MenuManager {
@@ -16,35 +17,56 @@ public class MenuManager {
 			System.out.println("6. Exit");
 			System.out.println("Select one number 1-6:");
 			num=input.nextInt();
-			switch (num) {
-			case 1:
-				System.out.print("Player Back Number:");
-				int PlayerNumber=input.nextInt();
-				System.out.print("Player Name:");
-				String PlayerName=input.next();
-				System.out.print("Player Position:");
-				String PlayerPosition=input.next();
-				break;
 
-			case 2:
-				System.out.print("Player Name:");
-				String PlayerName1=input.next();
-				break;
-
-
-			case 3:
-				System.out.print("Player Name:");
-				String PlayerName2=input.next();
-				break;
-
-
-			case 4:
-				System.out.print("Player Name:");
-				String PlayerName3=input.next();
-				break;
-
+			if (num==1) {
+				addPlayer();
+			}
+			else if (num==2) {
+				deletePlayer();
+			}
+			else if (num==3) {
+				editPlayer();
+			}
+			else if (num==4) {
+				viewPlayer();
+			}
+			else {
+				continue;
 			}
 		}
+	}
+	public static void addPlayer() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Player Name:");
+		String playerName=input.nextLine();
+		System.out.println("Player Back Number:");
+		int playerBackNumber=input.nextInt();
+		System.out.println("Position:");
+		String position=input.next();
+		System.out.println("Phone Number:");
+		String phoneNumber=input.next();
+		System.out.println(playerName);
+		System.out.println("No."+playerBackNumber);
+		System.out.println("Position:"+position);
+		System.out.println("Phone Number:"+phoneNumber);
+	}
+
+	public static void deletePlayer() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Player Name:");
+		String playerName=input.nextLine();
+	}
+
+	public static void editPlayer() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Player Name:");
+		String playerName=input.nextLine();
+	}
+
+	public static void viewPlayer() {
+		Scanner input=new Scanner(System.in);
+		System.out.println("Player Name:");
+		String playerName=input.nextLine();
 	}
 
 }

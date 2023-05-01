@@ -28,6 +28,7 @@ public class MenuManager {
 				playermanager.editPlayer();
 			}
 			else if (num==4) {
+				
 				playermanager.viewPlayers();
 			}
 			else {

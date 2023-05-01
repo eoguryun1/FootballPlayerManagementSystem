@@ -1,5 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import player.CaptainPlayer;
+import player.Player;
 
 public class PlayerManager {
 	ArrayList<Player> players=new ArrayList<Player>();
@@ -11,16 +15,29 @@ public class PlayerManager {
 	}
 
 	public void addPlayer() {
-		Player player=new Player();
-		System.out.print("Player Name:");
-		player.playerName=input.next();
-		System.out.print("Player Back Number:");
-		player.backNumber=input.nextInt();
-		System.out.print("Position:");
-		player.position=input.next();
-		System.out.print("Phone Number:");
-		player.phoneNumber=input.next();
-		players.add(player);
+		int kind=0;
+		Player player;
+		while(kind !=1 && kind !=2 ) {
+			System.out.print("1.for Normal ");
+			System.out.print("2.for Captain ");
+			System.out.print("Select Num For Player Kind Between 1, 2 :");
+			kind=input.nextInt();
+			if(kind==1) {
+				player=new Player();
+				player.getPlayerInput(input);
+				players.add(player);
+				break;
+			}
+			else if(kind==2) {
+				player=new CaptainPlayer();
+				player.getPlayerInput(input);
+				players.add(player);
+				break;
+			}
+			else {
+				System.out.print("Select Num For Player Kind Between 1, 2 :");
+			}
+		}
 	}
 
 	public void deletePlayer() {
@@ -28,7 +45,7 @@ public class PlayerManager {
 		String playerName=input.next();
 		int index=-1; 
 		for(int i=0; i<players.size(); i++) {
-			if(players.get(i).playerName.equals(playerName)) {
+			if(players.get(i).getPlayerName().equals(playerName)) {
 				index=i;
 				break;
 			}
@@ -47,7 +64,7 @@ public class PlayerManager {
 		String playerName=input.next();
 		for(int i=0; i<players.size(); i++) {
 			Player player=players.get(i);
-			if(player.playerName.equals(playerName)) {
+			if(player.getPlayerName().equals(playerName)) {
 				int num=-1;
 				while (num!=5) {
 					System.out.println("--Player Info Edit Menu");
@@ -60,19 +77,23 @@ public class PlayerManager {
 					num=input.nextInt();
 					if (num==1) {
 						System.out.println("Player Name");
-						player.playerName=input.next();
+						String playerName1=input.next();
+						player.setPlayerName(playerName1);
 					}
 					else if(num==2) {
 						System.out.println("Player BackNumber");
-						player.backNumber=input.nextInt();
+						int backNumber=input.nextInt();
+						player.setBackNumber(backNumber);
 					}
 					else if(num==3) {
 						System.out.println("Player position:");
-						player.position=input.next();
+						String position=input.next();
+						player.setPosition(position);
 					}
 					else if(num==4) {
 						System.out.println("Player PhoneNumber:");
-						player.phoneNumber=input.next();
+						String phoneNumber=input.next();
+						player.setPhoneNumber(phoneNumber);
 					}
 					else {
 						continue;

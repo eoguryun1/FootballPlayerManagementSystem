@@ -11,6 +11,11 @@ public class Player {
 	protected String phoneNumber;
 	
 	public Player() {
+		
+	}
+	
+	public Player(PlayerKind kind) {
+		this.kind=kind;
 	}
 	
 	public Player(String playerName, int backNumber) {
@@ -18,7 +23,8 @@ public class Player {
 		this.backNumber=backNumber;
 	}
 	
-	public Player(String playerName, int backNumber, String position, String phoneNumber) {
+	public Player(PlayerKind kind,String playerName, int backNumber, String position, String phoneNumber) {
+		this.kind=kind;
 		this.playerName=playerName;
 		this.backNumber=backNumber;
 		this.position=position;
@@ -66,7 +72,16 @@ public class Player {
 	}
 	
 	public void printInfo() {
-		System.out.println("Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber);
+		String skind="none";
+		switch(this.kind) {
+		case Normal:
+			skind="일반선수";
+			break;
+		case Captain:
+			skind="주장";
+			default:
+		}
+		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber);
 	}
 	
 	public void getPlayerInput(Scanner input) {

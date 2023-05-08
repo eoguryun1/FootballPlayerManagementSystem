@@ -3,6 +3,12 @@ package player;
 import java.util.Scanner;
 
 public class CaptainPlayer extends Player {
+	
+	public CaptainPlayer(PlayerKind kind) {
+		this.kind=kind;
+	}
+	protected String HousePhoneNumber;
+	
 	public void getPlayerInput(Scanner input) {
 		System.out.print("Player Name:");
 		String playerName=input.next();
@@ -28,14 +34,29 @@ public class CaptainPlayer extends Player {
 				break;
 			}
 			else if(answer == 'n' || answer =='N') {
-				this.setPhoneNumber(""); 
+				System.out.println("HousePhoneNumber: ");
+				String HousephoneNumber=input.next();
+				HousePhoneNumber=HousephoneNumber;
 				break;
 			}
 			else {
 
 			}
+			
 		}		
 
+	}
+	public void printInfo() {
+		String skind="none";
+		switch(this.kind) {
+		case Normal:
+			skind="일반선수";
+			break;
+		case Captain:
+			skind="주장";
+			default:
+		}
+		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber+"HousePhoneNumber: "+HousePhoneNumber);
 	}
 
 }

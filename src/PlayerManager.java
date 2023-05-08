@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import player.CaptainPlayer;
 import player.Player;
+import player.PlayerKind;
 
 public class PlayerManager {
 	ArrayList<Player> players=new ArrayList<Player>();
@@ -23,13 +24,13 @@ public class PlayerManager {
 			System.out.print("Select Num For Player Kind Between 1, 2 :");
 			kind=input.nextInt();
 			if(kind==1) {
-				player=new Player();
+				player=new Player(PlayerKind.Normal);
 				player.getPlayerInput(input);
 				players.add(player);
 				break;
 			}
 			else if(kind==2) {
-				player=new CaptainPlayer();
+				player=new CaptainPlayer(PlayerKind.Captain);
 				player.getPlayerInput(input);
 				players.add(player);
 				break;

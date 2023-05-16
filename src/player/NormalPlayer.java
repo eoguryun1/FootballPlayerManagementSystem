@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class NormalPlayer extends Player {
+public class NormalPlayer extends Player implements PlayerInput {
 	
 	public NormalPlayer(PlayerKind kind) {
 		this.kind=kind;
@@ -41,6 +41,19 @@ public class NormalPlayer extends Player {
 			}
 		}		
 
+	}
+	
+	public void printInfo() {
+		String skind="none";
+		switch(this.kind) {
+		case Normal:
+			skind="일반선수";
+			break;
+		case Captain:
+			skind="주장";
+			default:
+		}
+		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber);
 	}
 
 }

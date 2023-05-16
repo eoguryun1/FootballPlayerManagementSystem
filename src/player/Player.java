@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class Player {
+public abstract class Player {
 
 	protected PlayerKind kind= PlayerKind.Normal;  
 	protected String playerName;
@@ -71,18 +71,7 @@ public class Player {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public void printInfo() {
-		String skind="none";
-		switch(this.kind) {
-		case Normal:
-			skind="일반선수";
-			break;
-		case Captain:
-			skind="주장";
-			default:
-		}
-		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber);
-	}
+	public abstract void printInfo();
 	
 	public void getPlayerInput(Scanner input) {
 		System.out.print("Player Name:");

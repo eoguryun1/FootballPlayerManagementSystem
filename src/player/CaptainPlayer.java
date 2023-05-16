@@ -2,7 +2,7 @@ package player;
 
 import java.util.Scanner;
 
-public class CaptainPlayer extends Player {
+public class CaptainPlayer extends Player implements PlayerInput {
 	
 	public CaptainPlayer(PlayerKind kind) {
 		this.kind=kind;

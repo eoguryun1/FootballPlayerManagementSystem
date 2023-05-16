@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import player.CaptainPlayer;
+import player.NormalPlayer;
 import player.Player;
+import player.PlayerInput;
 import player.PlayerKind;
 
 public class PlayerManager {
-	ArrayList<Player> players=new ArrayList<Player>();
+	ArrayList<PlayerInput> players=new ArrayList<PlayerInput>();
 
 	Scanner input;
 
@@ -17,22 +19,22 @@ public class PlayerManager {
 
 	public void addPlayer() {
 		int kind=0;
-		Player player;
+		PlayerInput playerInput;
 		while(kind !=1 && kind !=2 ) {
 			System.out.print("1.for Normal ");
 			System.out.print("2.for Captain ");
 			System.out.print("Select Num For Player Kind Between 1, 2 :");
 			kind=input.nextInt();
 			if(kind==1) {
-				player=new Player(PlayerKind.Normal);
-				player.getPlayerInput(input);
-				players.add(player);
+				playerInput=new NormalPlayer(PlayerKind.Normal);
+				playerInput.getPlayerInput(input);
+				players.add(playerInput);
 				break;
 			}
 			else if(kind==2) {
-				player=new CaptainPlayer(PlayerKind.Captain);
-				player.getPlayerInput(input);
-				players.add(player);
+				playerInput=new CaptainPlayer(PlayerKind.Captain);
+				playerInput.getPlayerInput(input);
+				players.add(playerInput);
 				break;
 			}
 			else {
@@ -64,8 +66,8 @@ public class PlayerManager {
 		System.out.println("Player Name:");
 		String playerName=input.next();
 		for(int i=0; i<players.size(); i++) {
-			Player player=players.get(i);
-			if(player.getPlayerName().equals(playerName)) {
+			PlayerInput playerInput=players.get(i);
+			if(playerInput.getPlayerName().equals(playerName)) {
 				int num=-1;
 				while (num!=5) {
 					System.out.println("--Player Info Edit Menu");
@@ -79,22 +81,22 @@ public class PlayerManager {
 					if (num==1) {
 						System.out.println("Player Name");
 						String playerName1=input.next();
-						player.setPlayerName(playerName1);
+						playerInput.setPlayerName(playerName1);
 					}
 					else if(num==2) {
 						System.out.println("Player BackNumber");
 						int backNumber=input.nextInt();
-						player.setBackNumber(backNumber);
+						playerInput.setBackNumber(backNumber);
 					}
 					else if(num==3) {
 						System.out.println("Player position:");
 						String position=input.next();
-						player.setPosition(position);
+						playerInput.setPosition(position);
 					}
 					else if(num==4) {
 						System.out.println("Player PhoneNumber:");
 						String phoneNumber=input.next();
-						player.setPhoneNumber(phoneNumber);
+						playerInput.setPhoneNumber(phoneNumber);
 					}
 					else {
 						continue;

@@ -1,9 +1,15 @@
 package player;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Player {
+public abstract class Player implements PlayerInput ,Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5110673400209852400L;
+	
 	protected PlayerKind kind= PlayerKind.Normal;  
 	protected String playerName;
 	protected int backNumber;

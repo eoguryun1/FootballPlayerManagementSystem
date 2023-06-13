@@ -3,12 +3,12 @@ package player;
 import java.util.Scanner;
 
 public class CaptainPlayer extends Player implements PlayerInput {
-	
+
 	public CaptainPlayer(PlayerKind kind) {
-		this.kind=kind;
+		super(kind);
 	}
 	protected String HousePhoneNumber;
-	
+
 	public void getPlayerInput(Scanner input) {
 		System.out.print("Player Name:");
 		String playerName=input.next();
@@ -42,11 +42,16 @@ public class CaptainPlayer extends Player implements PlayerInput {
 			else {
 
 			}
-			
+
 		}		
 
 	}
 	public void printInfo() {
+		String skind=getKindString();
+		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber+"HousePhoneNumber: "+HousePhoneNumber);
+	}
+
+	public String getKindString() {
 		String skind="none";
 		switch(this.kind) {
 		case Normal:
@@ -54,9 +59,9 @@ public class CaptainPlayer extends Player implements PlayerInput {
 			break;
 		case Captain:
 			skind="¡÷¿Â";
-			default:
+		default:
 		}
-		System.out.println("kind:"+skind+"Name:"+playerName+" BackNumber:"+backNumber+" Position:"+position+" PhoneNumber:"+phoneNumber+"HousePhoneNumber: "+HousePhoneNumber);
+		return skind;
 	}
-
 }
+
